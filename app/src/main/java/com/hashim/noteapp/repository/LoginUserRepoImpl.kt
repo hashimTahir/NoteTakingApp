@@ -6,8 +6,8 @@ package com.hashim.noteapp.repository
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.hashim.noteapp.common.hAwaitTaskCompletable
 import com.hashim.noteapp.models.ResultResponse
-import com.hashim.noteapp.models.ResultResponse.Error.Factory.build
 import com.hashim.noteapp.models.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -41,7 +41,7 @@ class LoginUserRepoImpl(
         return withContext(Dispatchers.Main) {
             try {
                 val credential = GoogleAuthProvider.getCredential(idToken, null)
-                hAwaitTaskCompletable(auth.signInWithCredential(credential))
+                hAwaitTaskCompletable(hFireBaseAuth.signInWithCredential(credential))
 
                 ResultResponse.hBuild { Unit }
             } catch (exception: Exception) {
