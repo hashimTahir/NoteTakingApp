@@ -29,6 +29,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         hSubscribeObservers()
     }
 
+    private fun hSubscribeObservers() {
+
+    }
+
     private fun hSetupListeners() {
         hLoginAttemptB.setOnClickListener {
             hLoginViewModel.hHandleEvent(LoginEvent.OnAuthButtonClick)

@@ -16,12 +16,15 @@ class LoginViewModel(
     hCoroutineContext: CoroutineContext
 ) : BaseViewModel<LoginEvent<LoginResult>>(hCoroutineContext) {
 
+
     init {
         Timber.d("View Model injected")
     }
 
-    override val coroutineContext: CoroutineContext
-        get() = TODO("Not yet implemented")
+
+    override fun hHandleEvent(hEvent: LoginEvent<LoginResult>) {
+        TODO("Not yet implemented")
+    }
 
 
 }
