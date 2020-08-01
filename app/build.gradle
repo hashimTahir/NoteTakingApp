@@ -108,6 +108,8 @@ dependencies {
     // Add the Firebase Crashlytics SDK.
     implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
 
+    def materialVersion = '1.1.0'
+    implementation "com.google.android.material:material:$materialVersion"
 
 
 }

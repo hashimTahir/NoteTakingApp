@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_fragment_login"
+    android:id="@+id/hLoginFragmentCL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hashim.noteapp.ui.loginactivity."
@@ -10,7 +10,7 @@
 
 
     <ImageButton
-        android:id="@+id/imb_toolbar_back"
+        android:id="@+id/hToolBarBackIB"
         style="@style/Widget.AppCompat.ActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,12 +21,12 @@
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
     <TextView
-        android:id="@+id/lbl_login_status_header"
+        android:id="@+id/hLoginStatusTv"
         style="@style/Text.Primary.LoginHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login Status:"
-        app:layout_constraintBottom_toTopOf="@+id/imv_antenna_animation"
+        app:layout_constraintBottom_toTopOf="@+id/hAntennaAnimation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,31 +34,31 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <ImageView
-        android:id="@+id/imv_antenna_animation"
+        android:id="@+id/hAntennaAnimation"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:tint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/lbl_login_status_display"
+        app:layout_constraintBottom_toTopOf="@+id/hLoginStautusDetailTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_login_status_header"
+        app:layout_constraintTop_toBottomOf="@+id/hLoginStatusTv"
         app:srcCompat="@drawable/antenna_loop_fast" />
 
     <TextView
-        android:id="@+id/lbl_login_status_display"
+        android:id="@+id/hLoginStautusDetailTv"
         style="@style/Text.Primary.LoginHeader.Sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btn_auth_attempt"
+        app:layout_constraintBottom_toTopOf="@+id/hLoginAttemptB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imv_antenna_animation"
+        app:layout_constraintTop_toBottomOf="@+id/hAntennaAnimation"
         tools:text="Signed In" />
 
     <Button
-        android:id="@+id/btn_auth_attempt"
+        android:id="@+id/hLoginAttemptB"
         style="@style/AuthButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +66,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_login_status_display"
+        app:layout_constraintTop_toBottomOf="@+id/hLoginStautusDetailTv"
         tools:text="Sign Out" />
 </androidx.constraintlayout.widget.ConstraintLayout>
