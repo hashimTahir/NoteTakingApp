@@ -26,6 +26,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         hSetupView()
         hSetupListeners()
+        hLoginViewModel.hHandleEvent(LoginEvent.OnStart)
         hSubscribeObservers()
     }
 
