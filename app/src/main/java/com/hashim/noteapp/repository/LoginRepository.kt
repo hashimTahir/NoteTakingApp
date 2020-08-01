@@ -4,6 +4,14 @@
 
 package com.hashim.noteapp.repository
 
-class LoginRepository {
+import com.hashim.noteapp.models.ResultResponse
+import com.hashim.noteapp.models.User
+
+interface LoginRepository {
+    suspend fun hGetCurrentUser(): ResultResponse<Exception, User?>
+
+    suspend fun hSignOutCurrentUser(): ResultResponse<Exception, Unit>
+
+    suspend fun hSignInGoogleUser(idToken: String): ResultResponse<Exception, Unit>
 
 }
