@@ -3,39 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/noteListView">
+    app:startDestination="@id/hNoteListView">
 
 
-    <activity
-        android:id="@+id/loginView"
-        android:name="com.wiseassblog.jetpacknotesmvvmkotlin.login.LoginActivity"
-        android:label="activity_login"
-        tools:layout="@layout/fragment_login"
-
-        />
     <fragment
-        android:id="@+id/noteDetailView"
-        android:name="com.wiseassblog.jetpacknotesmvvmkotlin.note.notedetail.NoteDetailView"
+        android:id="@+id/hNoteDetailFragment"
+        android:name="com.hashim.noteapp.ui.notesactivity.fragments.NoteDetialFragment"
         android:label="NoteDetailView"
         tools:layout="@layout/fragment_note_detail">
-        <action
-            android:id="@+id/action_noteDetailView_to_noteListView2"
-            app:destination="@id/noteListView" />
-        <argument
-            android:name="noteId"
-            android:defaultValue='""'
-            app:argType="string" />
+
     </fragment>
     <fragment
-        android:id="@+id/noteListView"
-        android:name="com.wiseassblog.jetpacknotesmvvmkotlin.note.notelist.NoteListView"
+        android:id="@+id/hNoteListView"
+        android:name="com.hashim.noteapp.ui.notesactivity.fragments.NoteListFragment"
         android:label="NoteListView"
         tools:layout="@layout/fragment_note_list">
-        <action
-            android:id="@+id/action_noteListView_to_noteDetailView"
-            app:destination="@id/noteDetailView" />
-        <action
-            android:id="@+id/action_noteListView_to_loginActivity"
-            app:destination="@id/loginView" />
+
     </fragment>
 </navigation>
