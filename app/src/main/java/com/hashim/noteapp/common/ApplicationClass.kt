@@ -2,9 +2,10 @@
  * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp
+package com.hashim.noteapp.common
 
 import android.app.Application
+import com.hashim.noteapp.BuildConfig
 import timber.log.Timber
 
 class ApplicationClass : Application() {

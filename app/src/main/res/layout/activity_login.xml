@@ -5,7 +5,7 @@
     android:id="@+id/root_activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hashim.noteapp.ui.LoginActivity">
+    tools:context="com.hashim.noteapp.ui.loginactivity.fragment.LoginFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/hLoginNavHostFragment"
