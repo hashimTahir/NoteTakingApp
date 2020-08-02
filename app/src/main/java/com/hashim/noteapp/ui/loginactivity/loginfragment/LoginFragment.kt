@@ -11,7 +11,12 @@ import android.view.View
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.hashim.noteapp.R
+import com.hashim.noteapp.common.Constants
+import com.hashim.noteapp.common.Constants.Companion.H_RC_SIGN_IN
 import com.hashim.noteapp.common.startWithFade
 import com.hashim.noteapp.events.loginevent.LoginEvent
 import com.hashim.noteapp.ui.loginactivity.viewmodel.LoginViewModel
@@ -31,6 +36,39 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun hSubscribeObservers() {
+        hLoginViewModel.hSignInStatusTextMutableLiveData.observe(viewLifecycleOwner,
+            Observer {
+                hLoginStautusDetailTv.text = it
+            }
+        )
+        hLoginViewModel.hAuthButtonTextMutableLiveData.observe(viewLifecycleOwner,
+            Observer {
+                hLoginAttemptB.text = it
+            })
+
+        hLoginViewModel.hStartAnimationMutableLiveData.observe(viewLifecycleOwner,
+            Observer {
+                hAntennaAnimation.apply {
+                    setImageResource(
+                        resources.getIdentifier(
+                            Constants.H_ANTENNA_LOOP, "drawable", activity?.packageName
+                        )
+                    )
+                    var animationDrawable = drawable as AnimationDrawable
+                    animationDrawable.start()
+                }
+            })
+        hLoginViewModel.hAuthAttemptMutableLiveData.observe(viewLifecycleOwner,
+            Observer {
+                hStartSignInFlow()
+            })
+
+        hLoginViewModel.hSatelliteDrawableMutableLiveData.observe(viewLifecycleOwner,
+            Observer {
+                hAntennaAnimation.setImageResource(
+                    resources.getIdentifier(it, "drawable", activity?.packageName)
+                )
+            })
 
     }
 
@@ -46,6 +84,21 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
     }
+
+
+    private fun hStartSignInFlow() {
+
+        val hGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .build()
+
+        val hGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), hGoogleSignInOptions)
+        val hSignInIntent = hGoogleSignInClient.signInIntent
+        startActivityForResult(hSignInIntent, H_RC_SIGN_IN)
+
+
+    }
+
 
     private fun hStartNotesListActivity() {
         requireActivity().startActivity(Intent(activity, NotesActivity::class.java))
