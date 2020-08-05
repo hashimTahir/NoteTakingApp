@@ -14,7 +14,7 @@ import com.hashim.noteapp.di.LoginInjector
 import com.hashim.noteapp.ui.loginactivity.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
-    private var hNewNavHostFragment: NavHostFragment? = null
+    private var hLoginNavHostFragment: NavHostFragment? = null
     private lateinit var hNavController: NavController
     private lateinit var hLoginViewModel: LoginViewModel
 
@@ -34,9 +34,9 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun hInitNavController() {
-        hNewNavHostFragment =
+        hLoginNavHostFragment =
             supportFragmentManager.findFragmentById(R.id.hLoginNavHostFragment) as NavHostFragment?
-        hNavController = hNewNavHostFragment!!.navController
+        hNavController = hLoginNavHostFragment!!.navController
         hNavController.setGraph(R.navigation.login_activity_nav_graph)
     }
 }
