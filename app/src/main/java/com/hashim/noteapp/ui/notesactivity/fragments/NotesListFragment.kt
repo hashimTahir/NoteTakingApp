@@ -47,6 +47,10 @@ class NotesListFragment : Fragment(R.layout.fragment_note_list) {
 
     private fun hSetupListeners() {
         fab_create_new_item.setOnClickListener {
+            val hDirections =
+                NotesListFragmentDirections.actionHNoteListViewFragmentToHNoteDetailFragment()
+            findNavController().navigate(hDirections)
+
 
         }
         imv_toolbar_auth.setOnClickListener {

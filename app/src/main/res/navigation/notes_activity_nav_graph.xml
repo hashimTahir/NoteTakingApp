@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/hNoteListView">
+    app:startDestination="@id/hNoteListViewFragment">
 
 
     <fragment
@@ -11,13 +11,22 @@
         android:name="com.hashim.noteapp.ui.notesactivity.fragments.NoteDetialFragment"
         android:label="NoteDetailView"
         tools:layout="@layout/fragment_note_detail">
+        <action
+            android:id="@+id/action_hNoteDetailFragment_to_hNoteListViewFragment"
+            app:destination="@id/hNoteListViewFragment" />
+        <argument
+            android:name="noteId"
+            android:defaultValue='""'
+            app:argType="string" />
 
     </fragment>
     <fragment
-        android:id="@+id/hNoteListView"
+        android:id="@+id/hNoteListViewFragment"
         android:name="com.hashim.noteapp.ui.notesactivity.fragments.NotesListFragment"
         android:label="NoteListView"
         tools:layout="@layout/fragment_note_list">
-
+        <action
+            android:id="@+id/action_hNoteListViewFragment_to_hNoteDetailFragment"
+            app:destination="@id/hNoteDetailFragment" />
     </fragment>
 </navigation>
