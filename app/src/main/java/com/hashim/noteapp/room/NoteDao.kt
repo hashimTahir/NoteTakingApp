@@ -9,14 +9,14 @@ import androidx.room.*
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM notes")
-    suspend fun getNotes(): List<RoomNote>
+    suspend fun hGetAllNotes(): List<RoomNote>
 
     @Query("SELECT * FROM notes WHERE creation_date = :creationDate")
-    suspend fun getNoteById(creationDate: String): RoomNote
+    suspend fun hGetNoteById(creationDate: String): RoomNote
 
     @Delete
-    suspend fun deleteNote(note: RoomNote)
+    suspend fun hDeleteNote(note: RoomNote)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateNote(note: RoomNote): Long
+    suspend fun hInsertOrUpdateNote(note: RoomNote): Long
 }

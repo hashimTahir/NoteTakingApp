@@ -9,6 +9,7 @@ import androidx.lifecycle.AndroidViewModel
 import com.google.firebase.FirebaseApp
 import com.hashim.noteapp.providerfactory.NoteDetialViewModelProviderFactory
 import com.hashim.noteapp.repository.NotesRepoImpl
+import com.hashim.noteapp.repository.NotesRepositroy
 import com.hashim.noteapp.room.RoomNoteDataBase
 
 class NoteDetailInjector(application: Application) : AndroidViewModel(application) {
@@ -17,7 +18,7 @@ class NoteDetailInjector(application: Application) : AndroidViewModel(applicatio
         return NoteDetialViewModelProviderFactory(hGetNoteRepository())
     }
 
-    private fun hGetNoteRepository(): NotesRepoImpl {
+    private fun hGetNoteRepository(): NotesRepositroy {
         FirebaseApp.initializeApp(getApplication())
         return NotesRepoImpl(
             hNoteDao = RoomNoteDataBase.hGetInstance(getApplication()).hGetNoteDao()

@@ -30,7 +30,7 @@ class NotesRepoImpl(
 
     private suspend fun hGetLocalNote(hNoteId: String): ResultResponse<Exception, Note> {
         return ResultResponse.hBuild {
-            hNoteDao.getNoteById(hNoteId).hToNote
+            hNoteDao.hGetNoteById(hNoteId).hToNote
         }
     }
 
@@ -68,7 +68,7 @@ class NotesRepoImpl(
 
     private suspend fun hGetLocalNotes(): ResultResponse<Exception, List<Note>> {
         return ResultResponse.hBuild {
-            hNoteDao.getNotes().htoNoteListFromRoomNote()
+            hNoteDao.hGetAllNotes().htoNoteListFromRoomNote()
         }
     }
 
@@ -111,7 +111,7 @@ class NotesRepoImpl(
 
     private suspend fun hDeleteLocalNote(hNote: Note): ResultResponse<Exception, Unit> {
         return ResultResponse.hBuild {
-            hNoteDao.deleteNote(hNote.hToRoomNote)
+            hNoteDao.hDeleteNote(hNote.hToRoomNote)
             Unit
         }
     }
@@ -128,7 +128,7 @@ class NotesRepoImpl(
 
     override suspend fun hUpdateNote(hNote: Note): ResultResponse<Exception, Unit> {
         return ResultResponse.hBuild {
-            hNoteDao.insertOrUpdateNote(hNote.hToRoomNote)
+            hNoteDao.hInsertOrUpdateNote(hNote.hToRoomNote)
             Unit
         }
     }
