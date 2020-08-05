@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.hashim.noteapp.R
+import com.hashim.noteapp.common.makeToast
 import com.hashim.noteapp.common.startWithFade
 import com.hashim.noteapp.di.NotesListInjector
 import com.hashim.noteapp.events.NoteListEvent
@@ -45,7 +46,34 @@ class NotesListFragment : Fragment(R.layout.fragment_note_list) {
     }
 
     private fun hSubscribeObservers() {
-        TODO("Not yet implemented")
+        hNoteListViewModel.hError.observe(viewLifecycleOwner, Observer {
+            hShowErrorState(it)
+        })
+        hNoteListViewModel.hNoteListLiveData.observe(viewLifecycleOwner, Observer {
+            hNotesListAdapter.submitList(it)
+
+            if (it?.isNotEmpty()!!) {
+                (imv_satellite_animation.drawable as AnimationDrawable).stop()
+                imv_satellite_animation.visibility = View.INVISIBLE
+                rec_list_fragment.visibility = View.VISIBLE
+            }
+
+        })
+        hNoteListViewModel.hEditNoteLiveData.observe(viewLifecycleOwner, Observer {
+            hStartNoteDetailWithArgs(it)
+        })
+    }
+
+    private fun hStartNoteDetailWithArgs(it: String?) {
+        if (it != null) {
+            NotesListFragmentDirections.actionHNoteListViewFragmentToHNoteDetailFragment(it)
+        }
+
+    }
+
+    private fun hShowErrorState(it: String) {
+        makeToast(it)
+
     }
 
     private fun hSetupListeners() {
@@ -68,8 +96,7 @@ class NotesListFragment : Fragment(R.layout.fragment_note_list) {
 
     private fun hSetUpAdapter() {
         hNotesListAdapter = NotesListAdapter()
-        hNotesListAdapter.event.observe(
-            viewLifecycleOwner,
+        hNotesListAdapter.hNoteListEventMutableLiveData.observe(viewLifecycleOwner,
             Observer {
                 hNoteListViewModel.hHandleEvent(it)
             }
