@@ -9,11 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.hashim.noteapp.R
-import com.hashim.noteapp.ui.notesactivity.viewmodel.NotesViewModel
 
 class NotesActivity : AppCompatActivity() {
     private var hNotesNavHostFragment: NavHostFragment? = null
     private lateinit var hNavController: NavController
+
+    /*
+    * No shared view model.. each fragment i.e. Note list and note detial will have their own
+    * view models
+    * */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
