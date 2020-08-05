@@ -4,5 +4,14 @@
 
 package com.hashim.noteapp.providerfactory
 
-class NoteDetialViewModelProviderFactory {
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.hashim.noteapp.repository.NotesRepoImpl
+
+class NoteDetialViewModelProviderFactory(
+    private val hNotesRepo: NotesRepoImpl
+) : ViewModelProvider.Factory {
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        TODO("Not yet implemented")
+    }
 }

@@ -4,4 +4,25 @@
 
 package com.hashim.noteapp.di
 
-class NoteDetailInjector
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.google.firebase.FirebaseApp
+import com.hashim.noteapp.providerfactory.NoteDetialViewModelProviderFactory
+import com.hashim.noteapp.repository.NotesRepoImpl
+import com.hashim.noteapp.room.RoomNoteDataBase
+
+class NoteDetailInjector(application: Application) : AndroidViewModel(application) {
+
+    fun hProvidesNoteDetailViewModelFactory(): NoteDetialViewModelProviderFactory {
+        return NoteDetialViewModelProviderFactory(hGetNoteRepository())
+    }
+
+    private fun hGetNoteRepository(): NotesRepoImpl {
+        FirebaseApp.initializeApp(getApplication())
+        return NotesRepoImpl(
+            hNoteDao = RoomNoteDataBase.hGetInstance(getApplication()).hGetNoteDao()
+        )
+
+    }
+
+}
