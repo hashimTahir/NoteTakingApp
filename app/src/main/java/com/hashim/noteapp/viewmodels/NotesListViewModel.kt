@@ -19,8 +19,8 @@ class NotesListViewModel(
     hMainCoroutineDispatcher: MainCoroutineDispatcher
 ) : BaseViewModel<NoteListEvent>(hMainCoroutineDispatcher) {
 
-    private val hNotelListStateMutableLiveData = MutableLiveData<List<Note>>()
-    val hNoteListLiveData: LiveData<List<Note>> get() = hNotelListStateMutableLiveData
+    private val hNotelListStateMutableLiveData = MutableLiveData<List<Note>?>()
+    val hNoteListLiveData: MutableLiveData<List<Note>?> get() = hNotelListStateMutableLiveData
 
     private val hEditNoteStateMutableLiveData = MutableLiveData<String>()
     val hEditNoteLiveData: LiveData<String> get() = hEditNoteStateMutableLiveData
@@ -36,7 +36,7 @@ class NotesListViewModel(
         launch {
             val hNotesList = hNotesRepositroy.hGetAllNotes()
             when (hNotesList) {
-                is ResultResponse.Value -> hNotelListStateMutableLiveData.value = hNotesList.value!!
+                is ResultResponse.Value -> hNotelListStateMutableLiveData.value = hNotesList.value
                 is ResultResponse.Error -> hErrorState.value = H_GET_NOTES_ERROR
             }
         }
