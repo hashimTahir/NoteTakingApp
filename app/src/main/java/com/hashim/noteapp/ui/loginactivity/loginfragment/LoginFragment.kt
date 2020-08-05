@@ -23,7 +23,7 @@ import com.hashim.noteapp.common.Constants.Companion.H_RC_SIGN_IN
 import com.hashim.noteapp.common.startWithFade
 import com.hashim.noteapp.events.loginevent.LoginEvent
 import com.hashim.noteapp.models.LoginResult
-import com.hashim.noteapp.ui.loginactivity.viewmodel.LoginViewModel
+import com.hashim.noteapp.viewmodels.LoginViewModel
 import com.hashim.noteapp.ui.notesactivity.NotesActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 import timber.log.Timber

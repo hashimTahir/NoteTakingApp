@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
+ * Copyright (c) 2020/  8/ 5.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp.ui.loginactivity.viewmodel
+package com.hashim.noteapp.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import com.hashim.noteapp.common.Constants.Companion.H_ANTENNA_EMPTY
@@ -20,7 +20,6 @@ import com.hashim.noteapp.models.LoginResult
 import com.hashim.noteapp.models.ResultResponse
 import com.hashim.noteapp.models.User
 import com.hashim.noteapp.repository.LoginRepository
-import com.hashim.noteapp.ui.BaseViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.coroutines.CoroutineContext

@@ -9,7 +9,7 @@ import androidx.lifecycle.AndroidViewModel
 import com.google.firebase.FirebaseApp
 import com.hashim.noteapp.repository.LoginRepository
 import com.hashim.noteapp.repository.LoginUserRepoImpl
-import com.hashim.noteapp.ui.LoginViewModelProviderFactory
+import com.hashim.noteapp.providerfactory.LoginViewModelProviderFactory
 
 class LoginInjector(application: Application) : AndroidViewModel(application) {
     init {
@@ -17,7 +17,9 @@ class LoginInjector(application: Application) : AndroidViewModel(application) {
     }
 
     fun hProvidesLoginViewModelFactory(): LoginViewModelProviderFactory {
-        return LoginViewModelProviderFactory(hGetLoginRepository())
+        return LoginViewModelProviderFactory(
+            hGetLoginRepository()
+        )
     }
 
     private fun hGetLoginRepository(): LoginRepository {

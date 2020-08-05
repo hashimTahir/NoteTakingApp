@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
+ * Copyright (c) 2020/  8/ 5.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp.ui
+package com.hashim.noteapp.providerfactory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.hashim.noteapp.repository.LoginRepository
-import com.hashim.noteapp.ui.loginactivity.viewmodel.LoginViewModel
+import com.hashim.noteapp.viewmodels.LoginViewModel
 import kotlinx.coroutines.Dispatchers
 
 class LoginViewModelProviderFactory(

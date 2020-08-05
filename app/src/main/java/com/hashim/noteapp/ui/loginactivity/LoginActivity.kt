@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.hashim.noteapp.R
 import com.hashim.noteapp.di.LoginInjector
-import com.hashim.noteapp.ui.loginactivity.viewmodel.LoginViewModel
+import com.hashim.noteapp.viewmodels.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     private var hLoginNavHostFragment: NavHostFragment? = null

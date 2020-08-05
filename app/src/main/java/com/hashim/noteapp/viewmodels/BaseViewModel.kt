@@ -2,7 +2,7 @@
  * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp.ui
+package com.hashim.noteapp.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
