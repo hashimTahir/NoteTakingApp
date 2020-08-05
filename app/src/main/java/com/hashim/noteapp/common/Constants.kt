@@ -17,6 +17,8 @@ class Constants {
         internal const val H_SIGNED_OUT = "Signed Out"
         internal const val H_ANTENNA_FULL = "ic_antenna_full"
         internal const val H_SIGN_OUT = "SIGN OUT"
+        internal const val H_GET_NOTES_ERROR = "Error retrieving notes."
+
 
 
 

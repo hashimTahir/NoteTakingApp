@@ -4,6 +4,8 @@
 
 package com.hashim.noteapp.events
 
-class NoteListEvent {
-
+sealed class NoteListEvent {
+    data class hOnNoteItemClick(val hPosition: Int) : NoteListEvent()
+    object hOnNewNoteClick : NoteListEvent()
+    object hOnStart : NoteListEvent()
 }
