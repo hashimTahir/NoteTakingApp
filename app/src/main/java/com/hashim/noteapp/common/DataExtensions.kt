@@ -4,6 +4,7 @@
 
 package com.hashim.noteapp.common
 
+import android.text.Editable
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseUser
 import com.hashim.noteapp.models.FirebaseNote
@@ -93,3 +94,5 @@ internal val RoomNote.hToNote: Note
         this.imageUrl,
         User(this.creatorId)
     )
+
+internal fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)

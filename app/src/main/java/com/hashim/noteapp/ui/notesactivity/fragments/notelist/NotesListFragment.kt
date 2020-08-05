@@ -16,7 +16,6 @@ import com.hashim.noteapp.common.makeToast
 import com.hashim.noteapp.common.startWithFade
 import com.hashim.noteapp.di.NotesListInjector
 import com.hashim.noteapp.events.NoteListEvent
-import com.hashim.noteapp.ui.notesactivity.fragments.NotesListFragmentDirections
 import com.hashim.noteapp.viewmodels.NotesListViewModel
 import kotlinx.android.synthetic.main.fragment_note_list.*
 
