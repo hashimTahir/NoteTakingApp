@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/hNoteDetailFragment"
-        android:name="com.hashim.noteapp.ui.notesactivity.fragments.NoteDetialFragment"
+        android:name="com.hashim.noteapp.ui.notesactivity.fragments.notedetail.NoteDetialFragment"
         android:label="NoteDetailView"
         tools:layout="@layout/fragment_note_detail">
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/hNoteListViewFragment"
-        android:name="com.hashim.noteapp.ui.notesactivity.fragments.NotesListFragment"
+        android:name="com.hashim.noteapp.ui.notesactivity.fragments.notelist.NotesListFragment"
         android:label="NoteListView"
         tools:layout="@layout/fragment_note_list">
         <action

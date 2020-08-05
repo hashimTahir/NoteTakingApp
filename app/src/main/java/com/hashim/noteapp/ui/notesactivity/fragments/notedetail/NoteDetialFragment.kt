@@ -2,7 +2,7 @@
  * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp.ui.notesactivity.fragments
+package com.hashim.noteapp.ui.notesactivity.fragments.notedetail
 
 import androidx.fragment.app.Fragment
 import com.hashim.noteapp.R

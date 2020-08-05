@@ -1,25 +1,28 @@
 /*
- * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
+ * Copyright (c) 2020/  8/ 5.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp.ui.notesactivity.fragments
+package com.hashim.noteapp.ui.notesactivity.fragments.notelist
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.hashim.noteapp.R
 import com.hashim.noteapp.common.startWithFade
 import com.hashim.noteapp.di.NotesListInjector
 import com.hashim.noteapp.events.NoteListEvent
+import com.hashim.noteapp.ui.notesactivity.fragments.NotesListFragmentDirections
 import com.hashim.noteapp.viewmodels.NotesListViewModel
 import kotlinx.android.synthetic.main.fragment_note_list.*
 
 class NotesListFragment : Fragment(R.layout.fragment_note_list) {
 
     private lateinit var hNoteListViewModel: NotesListViewModel
+    private lateinit var hNotesListAdapter: NotesListAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,11 +63,19 @@ class NotesListFragment : Fragment(R.layout.fragment_note_list) {
     }
 
     private fun hShowLoadingState() {
-        TODO("Not yet implemented")
+        return (imv_satellite_animation.drawable as AnimationDrawable).start()
     }
 
     private fun hSetUpAdapter() {
-        TODO("Not yet implemented")
+        hNotesListAdapter = NotesListAdapter()
+        hNotesListAdapter.event.observe(
+            viewLifecycleOwner,
+            Observer {
+                hNoteListViewModel.hHandleEvent(it)
+            }
+        )
+        rec_list_fragment.adapter = hNotesListAdapter
+
     }
 
 
