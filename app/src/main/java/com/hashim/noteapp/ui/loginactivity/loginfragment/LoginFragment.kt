@@ -21,7 +21,7 @@ import com.hashim.noteapp.R
 import com.hashim.noteapp.common.Constants
 import com.hashim.noteapp.common.Constants.Companion.H_RC_SIGN_IN
 import com.hashim.noteapp.common.startWithFade
-import com.hashim.noteapp.events.loginevent.LoginEvent
+import com.hashim.noteapp.events.LoginEvent
 import com.hashim.noteapp.models.LoginResult
 import com.hashim.noteapp.viewmodels.LoginViewModel
 import com.hashim.noteapp.ui.notesactivity.NotesActivity

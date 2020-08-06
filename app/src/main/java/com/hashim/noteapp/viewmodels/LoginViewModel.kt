@@ -15,7 +15,7 @@ import com.hashim.noteapp.common.Constants.Companion.H_SIGNED_IN
 import com.hashim.noteapp.common.Constants.Companion.H_SIGNED_OUT
 import com.hashim.noteapp.common.Constants.Companion.H_SIGN_IN
 import com.hashim.noteapp.common.Constants.Companion.H_SIGN_OUT
-import com.hashim.noteapp.events.loginevent.LoginEvent
+import com.hashim.noteapp.events.LoginEvent
 import com.hashim.noteapp.models.LoginResult
 import com.hashim.noteapp.models.ResultResponse
 import com.hashim.noteapp.models.User

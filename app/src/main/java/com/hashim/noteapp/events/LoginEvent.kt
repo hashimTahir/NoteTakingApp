@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2020/  8/ 1.  Created by Hashim Tahir
+ * Copyright (c) 2020/  8/ 6.  Created by Hashim Tahir
  */
 
-package com.hashim.noteapp.events.loginevent
+package com.hashim.noteapp.events
 
 sealed class LoginEvent<out T> {
     object OnAuthButtonClick : LoginEvent<Nothing>()
